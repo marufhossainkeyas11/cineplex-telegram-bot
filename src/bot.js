@@ -460,13 +460,14 @@ export function createBot(storage) {
     kb.text(
       user.notifyNewMovies
         ? user.lang === "bn"
-          ? "🔕 নতুন মুভি অ্যালার্ট: চালু"
-          : "🔕 New Movie Alerts: ON"
+          ? "🔔 নতুন মুভি অ্যালার্ট: চালু"
+          : "🔔 New Movie Alerts: ON"
         : user.lang === "bn"
-          ? "🆕 নতুন মুভি এলে জানাও: বন্ধ"
-          : "🆕 New Movie Alerts: OFF",
+          ? "🔕 নতুন মুভি অ্যালার্ট: বন্ধ"
+          : "🔕 New Movie Alerts: OFF",
       "toggle_global_new"
     );
+
 
     const text =
       alerts.length > 0
