@@ -31,6 +31,7 @@ export const config = {
   branchScrapeBaseUrl: stripTrailingSlash(
     process.env.BRANCH_SCRAPE_BASE_URL || "https://starcineplex.com/branches"
   ),
+  branchProxyUrl: stripTrailingSlash(process.env.BRANCH_PROXY_URL || ""),
   scrapeConcurrency: Math.max(1, Number(process.env.SCRAPE_CONCURRENCY) || 4),
 
   // Optional in-process interval (minutes). Keep 0 on Render Free and use external cron-job.org.
