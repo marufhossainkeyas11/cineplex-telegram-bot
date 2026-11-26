@@ -30,7 +30,16 @@ async function fetchWithTimeout(url, { accept = "application/json" } = {}) {
       headers: {
         Accept: accept,
         "User-Agent":
-          "Mozilla/5.0 (compatible; CineplexBD-Bot/2.0; +https://cineplexbd.com)",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache",
+        "sec-fetch-dest": accept.includes("html") ? "document" : "empty",
+        "sec-fetch-mode": accept.includes("html") ? "navigate" : "cors",
+        "sec-fetch-site": "none",
+        "sec-fetch-user": "?1",
+        "upgrade-insecure-requests": "1",
       },
       signal: controller.signal,
     });
