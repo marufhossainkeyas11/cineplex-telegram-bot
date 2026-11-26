@@ -171,7 +171,10 @@ export async function getBranchShows(venueSlug, { forceRefresh = false } = {}) {
     return cached.data;
   }
 
-  const url = `${config.branchScrapeBaseUrl}/${encodeURIComponent(safeSlug)}`;
+  const targetUrl = `${config.branchScrapeBaseUrl}/${encodeURIComponent(safeSlug)}`;
+  const url = config.branchProxyUrl
+    ? `${config.branchProxyUrl}?url=${encodeURIComponent(targetUrl)}`
+    : targetUrl;
   const html = await fetchHtmlWithRetry(url, 1);
   const parsed = parseBranchRscHtml(html);
 
