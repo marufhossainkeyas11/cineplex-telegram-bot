@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: cineplex-telegram-bot
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: BOT_TOKEN
+        sync: false
+      - key: WEBHOOK_SECRET
+        generateValue: true
+      - key: CRON_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: PUBLIC_BRAND_NAME
+        value: STAR Cineplex
+      - key: PUBLIC_SITE_URL
+        value: https://cineplexbd.com
+      - key: API_BASE_URL
+        value: https://api.kichole.com/catalog/api
+      - key: ORG_ID
+        value: 0ab00001-0000-0000-0000-000000000001
+      - key: AUTO_CHECK_INTERVAL_MINUTES
+        value: "0"
